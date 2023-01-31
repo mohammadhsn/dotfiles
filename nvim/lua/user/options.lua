@@ -36,7 +36,7 @@ vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.confirm = true
 
--- vim.opt.signcolumn = 'yes:1'
+vim.opt.signcolumn = 'yes:1'
 
 vim.opt.undofile = true
 vim.opt.backup = true
