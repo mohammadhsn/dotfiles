@@ -22,6 +22,11 @@ use({
 
         vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
 
+        vim.api.nvim_set_hl(0, 'StatusLineNonText', {
+            fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
+            bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
+        })
+
     end,
 })
 
@@ -101,9 +106,29 @@ use({
     'nvim-lualine/lualine.nvim',
     requires = 'kyazdani41/nvim-web-devicons',
     config = function ()
-        require('lualine').setup()
+        require('user/plugins/lualine')
     end,
 })
+
+use({
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani41/nvim-web-devicons',
+    after = 'onedark.nvim',
+    config = function ()
+        require('user/plugins/bufferline')
+    end,
+})
+
+use {
+  'glepnir/dashboard-nvim',
+  event = 'VimEnter',
+  config = function()
+    require('dashboard').setup {
+      -- config
+    }
+  end,
+  requires = {'nvim-tree/nvim-web-devicons'}
+}
 
 if packer_bootstrap then
     require('packer').sync()
