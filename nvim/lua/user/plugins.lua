@@ -10,13 +10,28 @@ local use = require('packer').use
 
 use 'wbthomason/packer.nvim'
 
-use ('tpope/vim-commentary')
+use({
+    'jessarcher/onedark.nvim',
+    config = function()
+        vim.cmd('colorscheme onedark')
 
-use ('tpope/vim-surround')
+        vim.api.nvim_set_hl(0, 'FloatBorder', {
+            fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
+            bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
+        })
 
-use ('tpope/vim-unimpaired')
+        vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
 
-use ('jessarcher/vim-heritage')
+    end,
+})
+
+use 'tpope/vim-commentary'
+
+use 'tpope/vim-surround'
+
+use 'tpope/vim-unimpaired'
+
+use 'jessarcher/vim-heritage'
 
 use ({
     'airblade/vim-rooter',
@@ -71,6 +86,22 @@ use({
     },
     config = function()
         require('user/plugins/telescope')
+    end,
+})
+
+use({
+    'kyazdani42/nvim-tree.lua',
+    require = 'kyazdani42/nvim-web-devicons',
+    config = function()
+        require('user/plugins/nvim-tree')
+    end,
+})
+
+use({
+    'nvim-lualine/lualine.nvim',
+    requires = 'kyazdani41/nvim-web-devicons',
+    config = function ()
+        require('lualine').setup()
     end,
 })
 
