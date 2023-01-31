@@ -70,7 +70,7 @@ use({
         },
     },
     config = function()
-        require('telescope').setup()
+        require('user/plugins/telescope')
     end,
 })
 
