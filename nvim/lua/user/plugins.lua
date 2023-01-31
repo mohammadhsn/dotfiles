@@ -144,6 +144,16 @@ use {
   end,
 }
 
+use({
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+        require('nvim-treesitter.install').update({ with_sync = true })
+    end,
+    config = function()
+        require('user.plugins.treesitter')
+    end,
+})
+
 if packer_bootstrap then
     require('packer').sync()
 end
