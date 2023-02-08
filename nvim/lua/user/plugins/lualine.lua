@@ -24,15 +24,21 @@ require('lualine').setup({
             separator,
             '"ᚬ " .. tostring(#vim.tbl_keys(vim.lsp.buf_get_clients()))',
             { 'diagnostics', sources = { 'nvim_diagnostic' } },
-            separator,
         },
         lualine_c = {
-            'filename',
         },
         lualine_x = {
-            'filetype',
-            'encoding',
-            'fileformat',
+            {
+                'filetype',
+                icon_only = true,
+            },
+            'filename',
+        --     {
+        --         'filetype',
+        --         icon_only = true,
+        --     }
+            -- 'encoding',
+            -- 'fileformat',
         },
         lualine_y = {
             separator,
