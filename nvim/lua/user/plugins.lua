@@ -145,13 +145,44 @@ use {
 }
 
 use({
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-        require('nvim-treesitter.install').update({ with_sync = true })
-    end,
+    'neovim/nvim-lspconfig',
+    requires = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+    },
     config = function()
-        require('user.plugins.treesitter')
+        require('user/plugins/lspconfig')
     end,
+})
+
+use({
+    'hrsh7th/nvim-cmp',
+    requires = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-nvim-lsp-signature-help',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'L3MON4d3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
+        'onsails/lspkind-nvim',
+    },
+    config = function()
+        require('user/plugins/cmp')
+    end,
+})
+
+use({
+    'voldikss/vim-floaterm',
+    config = function()
+        vim.g.floaterm_width = 0.8
+        vim.g.floaterm_height = 0.8
+        vim.keymap.set('n', '<C-j>', ':FloatermToggle<CR>')
+        vim.keymap.set('t', '<C-j>', '<C-\\><C-n>:FloatermToggle<CR>')
+        vim.cmd([[
+            highlight link Floaterm CursorLine
+            highlight link FloatermBorder CursorLineBg
+        ]])
+    end
 })
 
 if packer_bootstrap then
