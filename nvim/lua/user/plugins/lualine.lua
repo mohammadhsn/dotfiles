@@ -1,10 +1,12 @@
-local separator = {'"| "', color = "StatusLineNonText"}
+-- local separator = {'"| "', color = "StatusLineNonText"}
+local separator = {'"| "'}
 
 require('lualine').setup({
     options = {
         section_separators = '',
         component_separators = '',
         global_status = true,
+        -- theme = 'onedark',
         theme = {
             normal = {
                 a = 'StatusLine',

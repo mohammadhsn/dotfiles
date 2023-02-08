@@ -10,23 +10,41 @@ local use = require('packer').use
 
 use 'wbthomason/packer.nvim'
 
+-- use({
+--     'jessarcher/onedark.nvim',
+--     config = function()
+--         vim.cmd('colorscheme onedark')
+
+--         vim.api.nvim_set_hl(0, 'FloatBorder', {
+--             fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
+--             bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
+--         })
+
+--         vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
+
+--         vim.api.nvim_set_hl(0, 'StatusLineNonText', {
+--             fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
+--             bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
+--         })
+
+--     end,
+-- })
+
+-- use { 
+--   'olivercederborg/poimandres.nvim',
+--   config = function()
+--     require('poimandres').setup {
+--       -- leave this setup function empty for default config
+--       -- or refer to the configuration section
+--       -- for configuration options
+--     }
+--   end
+-- }
+
 use({
-    'jessarcher/onedark.nvim',
+    'AlexvZyl/nordic.nvim',
     config = function()
-        vim.cmd('colorscheme onedark')
-
-        vim.api.nvim_set_hl(0, 'FloatBorder', {
-            fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-            bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-        })
-
-        vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
-
-        vim.api.nvim_set_hl(0, 'StatusLineNonText', {
-            fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
-            bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
-        })
-
+        vim.cmd('colorscheme nordic')
     end,
 })
 
@@ -113,7 +131,9 @@ use({
 use({
     'akinsho/bufferline.nvim',
     requires = 'kyazdani41/nvim-web-devicons',
-    after = 'onedark.nvim',
+    -- after = 'onedark.nvim',
+    -- after = 'poimandres.nvim',
+    -- after = 'nordic.nvim'
     config = function ()
         require('user/plugins/bufferline')
     end,
