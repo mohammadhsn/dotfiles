@@ -24,7 +24,7 @@ require('lualine').setup({
             'branch',
             'diff',
             separator,
-            '"ᚬ " .. tostring(#vim.tbl_keys(vim.lsp.buf_get_clients()))',
+            '"" .. tostring(#vim.tbl_keys(vim.lsp.buf_get_clients()))',
             { 'diagnostics', sources = { 'nvim_diagnostic' } },
         },
         lualine_c = {
@@ -39,8 +39,8 @@ require('lualine').setup({
         --         'filetype',
         --         icon_only = true,
         --     }
-            -- 'encoding',
-            -- 'fileformat',
+            'encoding',
+            'fileformat',
         },
         lualine_y = {
             separator,
